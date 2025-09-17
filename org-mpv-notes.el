@@ -220,7 +220,7 @@ Returns path (string)
         ;; Open mpv player
         (cond ((not (org-mpv-notes--active-backend t))
                (start path))
-              ((not (string-equal (org-mpv-notes--get-property "path") path))
+              ((not (string-equal (ignore-errors (org-mpv-notes--get-property "path")) path))
                (org-mpv-notes-kill)
                (sleep-for org-mpv-notes-empv-wait-interval)
                (start path))
